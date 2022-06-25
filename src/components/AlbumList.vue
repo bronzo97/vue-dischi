@@ -2,9 +2,10 @@
 <section class="album-list-section">
     <div class="container">
 
-        <div class="row-cols-5">
-            <div class="col">
-                <AlbumCard></AlbumCard>
+        <div class="row row-cols-5">
+            <div class="col"
+            v-for="album in albumList" :key="album.title">
+                <AlbumCard :info="album"></AlbumCard>
             </div>
         </div>
 
@@ -13,11 +14,29 @@
 </template>
 
 <script>
-import AlbumCard from './AlbumCard.vue'
+import AlbumCard from './AlbumCard.vue';
+import axios from "axios";
+
 
     export default {
+        name: 'AlbumList',
     data() {
-        return;
+        return {
+            apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
+            albumList: [],
+        }
+    },
+    methods: {
+        fetchAlbumList() {
+            axios.get(this.apiUrl)
+            .then((resp) => {
+                this.albumList = resp.data.response
+                
+            });
+        },
+    },
+    mounted() {
+        this.fetchAlbumList();
     },
     components: { 
         AlbumCard

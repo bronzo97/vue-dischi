@@ -6,28 +6,15 @@
 
 <script>
 
-import axios from "axios";
 
     export default {
         data() {
             return {
-                apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
             }
         },
         methods: {
-            fetchAlbumList() {
-                axios.get(this.apiUrl)
-                .then((resp) => {
-                    resp.dat
-                    debugger
-                });
-            },
         },
-        mounted() {
-            this.fetchAlbumList();
-        }
-
-        }
+    }
 </script>
 
 <style lang="scss">
