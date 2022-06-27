@@ -1,20 +1,21 @@
 <template>
     <header>
             <img src="../assets/img/logo-small.svg" alt="">
+            <SearchBar></SearchBar>
     </header>
 </template>
 
 <script>
+import SearchBar from './SearchBar.vue';
 
 
     export default {
-        data() {
-            return {
-            }
-        },
-        methods: {
-        },
-    }
+    data() {
+        return {};
+    },
+    methods: {},
+    components: { SearchBar }
+}
 </script>
 
 <style lang="scss">

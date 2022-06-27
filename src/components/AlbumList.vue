@@ -1,14 +1,12 @@
 <template>
 <section class="album-list-section">
     <div class="container">
-
         <div class="row row-cols-5">
             <div class="col"
             v-for="album in albumList" :key="album.title">
                 <AlbumCard :info="album"></AlbumCard>
             </div>
         </div>
-
     </div>
 </section>
 </template>
@@ -30,7 +28,7 @@ import axios from "axios";
         fetchAlbumList() {
             axios.get(this.apiUrl)
             .then((resp) => {
-                this.albumList = resp.data.response
+                this.albumList = resp.data.response;
                 
             });
         },
@@ -47,5 +45,7 @@ import axios from "axios";
 <style leng="scss" scoped>
         .album-list-section {
         background-color: #1E2D3B;
+        height: 100%;
+        overflow: auto;
     }
 </style>

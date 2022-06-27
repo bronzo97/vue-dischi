@@ -21,6 +21,7 @@
 <style leng="scss" scoped>
     .album-card {
         background-color: #2E3A46;
+        text-align: center;
     }
 
     h4 {
