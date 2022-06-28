@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TheHeader></TheHeader>
+    <TheHeader @genresUpdate="onGenresUpdate()"></TheHeader>
     <AlbumList></AlbumList>
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
   components: {
     TheHeader,
     AlbumList
+  },
+  methods: {
+    onGenreUpdate(listaGeneri) {
+      console.log(listaGeneri)
+    }
   }
 }
 </script>

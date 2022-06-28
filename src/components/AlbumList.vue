@@ -29,9 +29,22 @@ import axios from "axios";
             axios.get(this.apiUrl)
             .then((resp) => {
                 this.albumList = resp.data.response;
-                
+
+                this.$emit("genresUpdate", this.listaGeneri())
+
             });
         },
+        listaGeneri() {
+            const lista = [];
+
+            this.albumList.forEach((album) => {
+                if (!lista.includes(album.genre)) {
+                    lista.push(album.genre);
+                }
+            })
+            return lista;
+        }
+
     },
     mounted() {
         this.fetchAlbumList();
